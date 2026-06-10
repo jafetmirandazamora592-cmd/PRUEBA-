@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Blade | Artículos de Barbería Premium</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-hover: #b8972f;
+            --dark-bg: #111111;
+            --card-bg: #1a1a1a;
+            --light-text: #ffffff;
+            --gray-text: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: #000;
+            padding: 15px 35px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(17, 17, 17, 1)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- BENEFICIOS --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .benefit-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .benefit-card h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* --- CATEGORÍAS --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 15px auto 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .category-item {
+            position: relative;
+            height: 250px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .category-item h3 {
+            position: relative;
+            z-index: 2;
+            color: var(--light-text);
+        }
+
+        /* --- PRODUCTOS DESTACADOS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #222;
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .product-desc {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- OFERTA DESTACADA --- */
+        .promo-banner {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1512690118252-b138a3df9dc3?auto=format&fit=crop&w=1200&q=80') center/cover;
+            text-align: center;
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 50px 20px;
+        }
+
+        .promo-banner h2 {
+            color: var(--gold);
+            font-size: 2.5rem;
+        }
+
+        .countdown {
+            color: #ff4444;
+            font-weight: bold;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        /* --- TESTIMONIOS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* --- CTA FINAL --- */
+        .cta-final {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-final h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            padding: 40px 0;
+            text-align: center;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="container hero-content">
+            <h1>Domina el Arte del Corte con <br><span>Herramientas de Élite</span></h1>
+            <p>Equipamiento profesional, insumos premium y tecnología de vanguardia para barberos exigentes y hombres que no aceptan menos que la perfección.</p>
+            <a href="#productos" class="btn">Explorar Catálogo</a>
+        </div>
+    </header>
+
+    <!-- BENEFICIOS -->
+    <section class="container">
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Calidad Élite</h3>
+                <p>Materiales de alta resistencia diseñados para uso continuo en barberías de alto flujo.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Envío Express</h3>
+                <p>Recibe tus herramientas en la puerta de tu local o casa en 24/48 horas garantizado.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Garantía Real</h3>
+                <p>Todos nuestros equipos cuentan con 1 año de garantía directa de fábrica.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="container">
+        <h2 class="section-title">Líneas de Producto</h2>
+        <div class="categories-grid">
+            <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=500&q=80');">
+                <h3>Máquinas y Recortadoras</h3>
+            </div>
+            <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1593702295094-aea22597af65?auto=format&fit=crop&w=500&q=80');">
+                <h3>Navajas y Filos</h3>
+            </div>
+            <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1605497746444-ac9da5848a80?auto=format&fit=crop&w=500&q=80');">
+                <h3>Elixires y Cuidado de Barba</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section class="container" id="productos">
+        <h2 class="section-title">Herramientas Más Vendidas</h2>
+        <div class="products-grid">
+            
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1501719186411-56d7d14d87ba?auto=format&fit=crop&w=400&q=80" alt="Máquina Profesional" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">Cortadora Inalámbrica "Titanium Pro"</h3>
+                    <div class="product-price">$120.00</div>
+                    <p class="product-desc">Motor magnético de alta velocidad y cuchilla de titanio ajustable. Autonomía de 4 horas.</p>
+                    <a href="https://wa.me/tuNumeroDeTelefono?text=Hola,%20me%20interesa%20la%20Titanium%20Pro" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1517832606589-7a598b647192?auto=format&fit=crop&w=400&q=80" alt="Navaja Barbera" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">Navaja de Afeitar "Black Gold Edition"</h3>
+                    <div class="product-price">$45.00</div>
+                    <p class="product-desc">Cuerpo de acero inoxidable balanceado con acabado negro mate y detalles en oro de 18k.</p>
+                    <a href="https://wa.me/tuNumeroDeTelefono?text=Hola,%20me%20interesa%20la%20Navaja%20Black%20Gold" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1626015713026-d8309cbd0201?auto=format&fit=crop&w=400&q=80" alt="Aceite Barba" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">Óleo para Barba "Imperial Sandalwood"</h3>
+                    <div class="product-price">$25.00</div>
+                    <p class="product-desc">Mezcla premium de aceites esenciales orgánicos. Hidrata la piel y suaviza el vello más duro.</p>
+                    <a href="https://wa.me/tuNumeroDeTelefono?text=Hola,%20me%20interesa%20el%20Oleo%20Imperial" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROMOCIONES / OFERTAS -->
+    <section class="container">
+        <div class="promo-banner">
+            <h2>Combo "Barber Master Pack"</h2>
+            <p class="countdown">⏱️ OFERTA POR TIEMPO LIMITADO - SÓLO ESTA SEMANA</p>
+            <p style="font-size: 1.2rem; margin-bottom: 25px;">Llévate la Cortadora Titanium Pro + Navaja Black Gold + Óleo Imperial por un precio ridículo.</p>
+            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 25px; color: var(--gold);">
+                <span style="text-decoration: line-through; color: #777; font-size: 1.3rem;">$190.00</span> $135.00
+            </div>
+            <a href="https://wa.me/tuNumeroDeTelefono?text=Hola,%20quiero%20el%20Combo%20Barber%20Master" class="btn">Asegurar Mi Combo</a>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="container">
+        <h2 class="section-title">Hablan los Profesionales</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"La máquina Titanium Pro redujo mis tiempos de desvanecido a la mitad. El motor no se calienta para nada después de 8 horas de uso continuo."</p>
+                <div class="testimonial-author">- Carlos Mendoza, Dueño de 'The Shave Lab'</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Mis clientes siempre elogian el aroma del óleo de sándalo. Es un producto que se vende prácticamente solo en la recepción."</p>
+                <div class="testimonial-author">- Mateo Rossi, Barbero Independiente</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN FINAL -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>¿Listo para subir el nivel de tu estación?</h2>
+            <p style="color: var(--gray-text); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Atención prioritaria y asesoría de stock directo por WhatsApp para mayoristas y barberías profesionales.</p>
+            <a href="https://wa.me/tuNumeroDeTelefono?text=Hola,%20quiero%20recibir%20asesoria%20de%20productos" class="btn" style="background-color: #25d366; color: white;">💬 Chatear con un Asesor</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container" style="padding: 0;">
+            <p>© 2026 The Golden Blade Supply. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Envíos nacionales | Métodos de pago: Tarjeta de Crédito, Transferencia Bancaria, Efectivo.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
